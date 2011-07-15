@@ -38,7 +38,7 @@ capturize_extension:
     
 7) You can now capturize web pages with the following syntax:
 
-<img src="{% capturize "http://www.bbc.co.uk" with { 'browser_width' : 1024, 'browser_height' : 768} %}" />
+<img src="{% capturize 'http://www.bbc.co.uk' with { 'browser_width' : 1024, 'browser_height' : 768} %}" />
 
 Available parameters:
 
