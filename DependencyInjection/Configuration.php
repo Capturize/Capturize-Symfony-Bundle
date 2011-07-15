@@ -24,6 +24,15 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('public_key')->end()
                 ->scalarNode('private_key')->end()
+                ->scalarNode('browser_width')->end()
+                ->scalarNode('browser_height')->end()
+                ->scalarNode('quality')->end()
+                ->scalarNode('crop_x')->end()
+                ->scalarNode('crop_y')->end()
+                ->scalarNode('crop_width')->end()
+                ->scalarNode('crop_height')->end()
+                ->scalarNode('resize_width')->end()
+                ->scalarNode('resize_height')->end()
             ->end()
         ;
         // Here you should define the parameters that are allowed to

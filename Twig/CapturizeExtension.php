@@ -10,9 +10,9 @@ class CapturizeExtension extends \Twig_Extension {
     private $private_key;
     private $api;
 
-    public function __construct($public_key, $private_key)
+    public function __construct($public_key, $private_key, array $defaults = array())
     {
-        $this->api = new \Capturize_Api($public_key, $private_key);
+        $this->api = new \Capturize_Api($public_key, $private_key, $defaults);
     }
 
     public function getFilters()

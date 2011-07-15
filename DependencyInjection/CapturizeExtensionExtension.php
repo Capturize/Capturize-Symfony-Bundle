@@ -29,13 +29,25 @@ class CapturizeExtensionExtension extends Extension
 
         $loader->load('services.xml');
 
-        if (isset($config["public_key"]))
+        $attributes = array();
+        foreach (array("browser_width",
+                       "browser_height",
+                       "quality",
+                       "crop_x",
+                       "crop_y",
+                       "crop_width",
+                       "crop_height",
+                       "resize_width",
+                       "resize_height") as $key)
         {
-            $container->setParameter('capturize_extension.public_key', $config["public_key"]);
+            if (isset($config[$key]))
+            {
+                $attributes[$key] = $config[$key];
+            }
         }
-        if (isset($config["private_key"]))
-        {
-            $container->setParameter('capturize_extension.private_key', $config["private_key"]);
-        }
+
+        if (isset($config["public_key"])) $container->setParameter('capturize_extension.public_key', $config["public_key"]);
+        if (isset($config["private_key"])) $container->setParameter('capturize_extension.private_key', $config["private_key"]);
+        $container->setParameter('capturize_extension.defaults', $attributes);
     }
 }

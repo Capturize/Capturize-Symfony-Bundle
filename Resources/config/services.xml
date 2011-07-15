@@ -5,12 +5,14 @@
     <parameters>
         <parameter key="capturize_extension.public_key" />
         <parameter key="capturize_extension.private_key" />
+        <parameter key="capturize_extension.defaults" />
     </parameters>
 
     <services>
         <service id="capturize.twig.extension" class="Capturize\ExtensionBundle\Twig\CapturizeExtension">
             <argument>%capturize_extension.public_key%</argument>
             <argument>%capturize_extension.private_key%</argument>
+            <argument>%capturize_extension.defaults%</argument>
             <tag name="twig.extension" />
         </service>
     </services>
