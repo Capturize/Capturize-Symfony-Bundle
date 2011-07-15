@@ -13,6 +13,13 @@ $loader->registerPrefixes(array(
     'Capturize_'       => __DIR__.'/../vendor/capturize/lib',
 ));
 
+and add Capturize to registerNamespaces:
+
+$loader->registerNamespaces(array(
+    ....
+    'Capturize'        => __DIR__.'/../vendor/bundles',
+));
+
 5) Add the bundle to /app/AppKernel.php:
 
 public function registerBundles()
