@@ -36,6 +36,20 @@ capturize_extension:
     public_key: f124jd3183f5049ea58e6f537645a9fa
     private_key: 5b54f2h6eb07306e941b5ea370205a44
     
-7) In your twig templates you can now run urls through a "capturize" filter to retrieve the URL of a screeng grab, for example:
+7) You can now capturize web pages with the following syntax:
 
-<img src="{{ "http://www.bbc.co.uk"|capturize }}" />
+<img src="{% capturize "http://www.bbc.co.uk" with { 'browser_width' : 1024, 'browser_height' : 768} %}" />
+
+Available parameters:
+
+browser_width
+browser_height
+crop_x
+crop_y
+crop_width
+crop_height
+resize_width
+resize_height
+quality
+
+Resizing is done after cropping.
