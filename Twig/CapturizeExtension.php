@@ -2,6 +2,8 @@
 
 namespace Capturize\ExtensionBundle\Twig;
 
+use Capturize\ExtensionBundle\Twig\CapturizeTokenParser;
+
 class CapturizeExtension extends \Twig_Extension {
 
     private $public_key;
@@ -28,6 +30,18 @@ class CapturizeExtension extends \Twig_Extension {
     public function getName()
     {
         return 'capturize_extension';
+    }
+
+    public function getTokenParsers()
+    {
+        return array(
+            new CapturizeTokenParser(),
+        );
+    }
+
+    public function capturizeAction($url, $attributes = array())
+    {
+        return $this->api->getImageUrl($url, $attributes);
     }
 
     public function __call($name, $arguments)

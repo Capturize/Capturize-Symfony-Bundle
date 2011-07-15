@@ -26,6 +26,7 @@ class CapturizeExtensionExtension extends Extension
         $config = $processor->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
         $loader->load('services.xml');
 
         if (isset($config["public_key"]))
