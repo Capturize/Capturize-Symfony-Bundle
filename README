@@ -1,0 +1,30 @@
+== Improve this ==
+
+1) Register for an account at http://capturize.it
+2) Download https://github.com/Capturize/Capturize-PHP-Lib and put it in /vendor/capturize/
+3) Download Capturize-Symfony-Bundle and place it in /vendor/bundles/Capturize/ExtensionBundle/
+4) Edit /app/autoload.php and add Capturize_ to the registerPrefixes array
+
+$loader->registerPrefixes(array(
+    ....
+    'Capturize_'       => __DIR__.'/../vendor/capturize/lib',
+));
+
+4) Add the bundle to /app/AppKernel.php:
+
+public function registerBundles()
+{
+    $bundles = array(
+        ....
+        new Capturize\ExtensionBundle\CapturizeExtensionBundle(),
+    );
+}
+5) Configure the bundle with your public and private key in your config file:
+
+capturize_extension:
+    public_key: f124jd3183f5049ea58e6f537645a9fa
+    private_key: 5b54f2h6eb07306e941b5ea370205a44
+    
+6) In your twig templates you can now run urls through a "capturize" filter to retrieve the URL of a screeng grab, for example:
+
+<img src="{{ "http://www.bbc.co.uk"|capturize }}" />
